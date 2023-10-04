@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ironmelt", "Ironmelt.csproj", "{A802A335-CFB2-42AA-8DF8-E8297871C955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CEParser", "..\CEParser\CEParser.csproj", "{842BFD28-BF15-49CA-AD98-AF541FF8A214}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A802A335-CFB2-42AA-8DF8-E8297871C955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A802A335-CFB2-42AA-8DF8-E8297871C955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A802A335-CFB2-42AA-8DF8-E8297871C955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A802A335-CFB2-42AA-8DF8-E8297871C955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842BFD28-BF15-49CA-AD98-AF541FF8A214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842BFD28-BF15-49CA-AD98-AF541FF8A214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842BFD28-BF15-49CA-AD98-AF541FF8A214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842BFD28-BF15-49CA-AD98-AF541FF8A214}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
