@@ -1,0 +1,65 @@
+﻿<Window x:Name="wMain" x:Class="Ironmelt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ironmelt"
+        mc:Ignorable="d"
+        Title="Ironmelt" Height="400" Width="500" MinWidth="400" MinHeight="300" ResizeMode="CanResizeWithGrip" Loaded="MainWindow_Loaded" Closed="MainWindow_Closed">
+    <DockPanel LastChildFill="True" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem x:Name="mDecode" Header="Decode" HorizontalAlignment="Stretch" IsEnabled="{Binding IsEnabled, ElementName=ButtonDecode, UpdateSourceTrigger=PropertyChanged}" Click="ButtonDecode_Click"/>
+                <Separator Height="1" />
+                <MenuItem x:Name="mExit" Header="Exit" HorizontalAlignment="Stretch" Click="MenuExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Folders">
+                <MenuItem x:Name="mDocumentsHoI4" Header="HoI4: Open local folder" HorizontalAlignment="Stretch" Click="MenuDocumentsHoI4_Click" />
+                <MenuItem x:Name="mSteamHoI4" Header="HoI4: Open cloud folder" HorizontalAlignment="Stretch" Click="MenuSteamHoI4_Click" />
+                <Separator x:Name="separatorHoI4" Height="1" />
+                <MenuItem x:Name="mDocumentsEU4" Header="EU4: Open local folder" HorizontalAlignment="Stretch" Click="MenuDocumentsEU4_Click" />
+                <MenuItem x:Name="mSteamEU4" Header="EU4: Open cloud folder" HorizontalAlignment="Stretch" Click="MenuSteamEU4_Click" />
+                <Separator x:Name="separatorEU4" Height="1" />
+                <MenuItem x:Name="mDocumentsCK2" Header="CK2: Open local folder" HorizontalAlignment="Stretch" Click="MenuDocumentsCK2_Click" />
+                <MenuItem x:Name="mSteamCK2" Header="CK2: Open cloud folder" HorizontalAlignment="Stretch" Click="MenuSteamCK2_Click" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem x:Name="mHelp" Header="Help" HorizontalAlignment="Stretch" Click="MenuHelp_Click"/>
+                <Separator Height="1" />
+                <MenuItem x:Name="mCheckForUpdates" Header="Check for updates..." HorizontalAlignment="Stretch" Click="MenuCheckForUpdates_Click"/>
+                <MenuItem x:Name="MenuCheckForUpdatesAutomatically" Header="Check for updates on startup" HorizontalAlignment="Stretch" IsCheckable="True" Click="MenuCheckForUpdatesAutomatically_Click"/>
+                <Separator Height="1" />
+                <MenuItem x:Name="mAbout" Header="About" HorizontalAlignment="Stretch" Click="MenuAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        <GroupBox x:Name="gConfig" Header="Configuration" DockPanel.Dock="Top" Margin="5" Height="150
+                  ">
+            <Grid Margin="0,0,0,5">
+                <TextBox x:Name="TextPath" Height="23" Margin="80,11,90,0" VerticalAlignment="Top" Drop="TextPath_Drop" AllowDrop="True" PreviewDragOver="TextPath_PreviewDragOver"/>
+                <Label x:Name="lPath" Content="Source file" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="ButtonBrowse" Content="Browse" Margin="0,11,10,0" VerticalAlignment="Top" Height="23" HorizontalAlignment="Right" Width="75" Click="ButtonBrowse_Click"/>
+                <Button x:Name="ButtonDecode" Content="Decode" Margin="0,90,10,0" VerticalAlignment="Top" Height="23" IsDefault="True" FontWeight="Bold" HorizontalAlignment="Right" Width="75" Click="ButtonDecode_Click"/>
+                <CheckBox x:Name="CheckCopyCloudToLocal" Content="Save to local savegames folder" HorizontalAlignment="Left" Margin="10,42,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="CheckCleanUp" Content="Mitigate errors" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="CheckAppendSuffix" Content="Prevent overwrite of the original file" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="CheckCompressBack" Content="Decode to a compressed savegame" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gProgress" Header="Progress" Margin="5,0,5,5">
+            <Grid>
+                <ProgressBar x:Name="ProgressBar" Height="10" Margin="10,31,10,0" VerticalAlignment="Top" Maximum="1"/>
+                <Label x:Name="LabelProgress" Content="Not started." HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                <ListView x:Name="ListErrors" Margin="10,46,10,8">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Warning" Width="180" DisplayMemberBinding="{Binding Error}"/>
+                            <GridViewColumn Header="Count" Width="70" DisplayMemberBinding="{Binding Count}"/>
+                            <GridViewColumn Header="Details" Width="100" DisplayMemberBinding="{Binding Details}"/>
+                            <GridViewColumn Header="Severity" Width="80" DisplayMemberBinding="{Binding Severity}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </GroupBox>
+    </DockPanel>
+</Window>
